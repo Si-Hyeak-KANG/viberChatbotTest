@@ -7,7 +7,7 @@ on:
 
 # 환경설정
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/chatbot-test
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/chatbot-test:latest
   VERSION: ${{ github.sha }}
   NAME: go_cicd
 
@@ -43,7 +43,7 @@ jobs:
         with:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}:latest
+          tags: ${{ env.DOCKER_IMAGE }}
   # 배포 Job
   deploy:
     needs: build  # build 후에 실행되도록 정의
@@ -56,8 +56,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # 3000 -> 80 포트로 수행하도록 지정
+      # 8080 -> 80 포트로 수행하도록 지정
       - name: Docker run
         run: |
-          docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 80:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
+          docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}
+          docker run -d -p 80:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}
