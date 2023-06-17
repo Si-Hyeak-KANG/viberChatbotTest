@@ -9,13 +9,3 @@ server:
       encoding:
         charset: UTF-8
         force-response: true
-
-application.viber-bot:
-  auth-token: "51325d70dda7dc2c-2f10319fe1a387be-b00bd73e2ba977c2"
-  webhook-url: "https://webhooktest.shop/api/bot/test"
-  name: "kang"
-  avatar: "https://example.com/avatar.jpg"
-
-logging:
-  level:
-    com.example: debug
