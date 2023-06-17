@@ -41,6 +41,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: build/libs/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ env.DOCKER_IMAGE }}
