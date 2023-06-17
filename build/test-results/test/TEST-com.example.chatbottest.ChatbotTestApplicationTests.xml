@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.chatbottest.ChatbotTestApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-14T08:28:02" hostname="jamesui-MacBookPro.local" time="0.399">
+<testsuite name="com.example.chatbottest.ChatbotTestApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-17T13:23:49" hostname="jamesui-MacBookPro.local" time="0.396">
   <properties/>
-  <testcase name="contextLoads()" classname="com.example.chatbottest.ChatbotTestApplicationTests" time="0.399"/>
-  <system-out><![CDATA[17:28:01.752 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.chatbottest.ChatbotTestApplicationTests]: ChatbotTestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:28:01.802 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.chatbottest.ChatbotTestApplication for test class com.example.chatbottest.ChatbotTestApplicationTests
+  <testcase name="contextLoads()" classname="com.example.chatbottest.ChatbotTestApplicationTests" time="0.396"/>
+  <system-out><![CDATA[22:23:46.532 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.chatbottest.ChatbotTestApplicationTests]: ChatbotTestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:23:46.583 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.chatbottest.ChatbotTestApplication for test class com.example.chatbottest.ChatbotTestApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,9 +13,11 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.1.0)
 
-2023-06-14T17:28:01.975+09:00  INFO 6611 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : Starting ChatbotTestApplicationTests using Java 17.0.7 with PID 6611 (started by james in /Users/james/Dev/chatbot-test)
-2023-06-14T17:28:01.975+09:00  INFO 6611 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : No active profile set, falling back to 1 default profile: "default"
-2023-06-14T17:28:02.422+09:00  INFO 6611 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : Started ChatbotTestApplicationTests in 0.563 seconds (process running for 1.019)
+2023-06-17T22:23:46.765+09:00  INFO 6571 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : Starting ChatbotTestApplicationTests using Java 17.0.7 with PID 6571 (started by james in /Users/james/Dev/chatbot-test)
+2023-06-17T22:23:46.766+09:00 DEBUG 6571 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : Running with Spring Boot v3.1.0, Spring v6.0.9
+2023-06-17T22:23:46.766+09:00  INFO 6571 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2023-06-17T22:23:47.153+09:00  INFO 6571 --- [    Test worker] c.viber.bot.middleware.PubSubMiddleware  : Started polling from queue..
+2023-06-17T22:23:47.349+09:00  INFO 6571 --- [    Test worker] c.e.c.ChatbotTestApplicationTests        : Started ChatbotTestApplicationTests in 0.709 seconds (process running for 1.192)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
