@@ -7,7 +7,7 @@ on:
 
 # 환경설정
 env:
-  DOCKER_IMAGE: ghcr.io/zlcls456/chatbot-test:latest
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/chetbot-test
   VERSION: ${{ github.sha }}
   NAME: go_cicd
 
@@ -18,19 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # github repository에서 checkout
-      - name: Checkout
-        uses: actions/checkout@v2
-
-#      # java set up
-#      - name: Setup Java
-#        uses: actions/setup-java@v2
-#        with:
-#          java-version: '17'
-#
-#      # java gradle build
-#      - name: Build with Gradle
-#        run: ./gradlew build
-#
+      - uses: actions/checkout@v2
       # docker build 수행
       - name: Set up docker buildx
         id: buildx
@@ -53,10 +41,9 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          file: build/libs/Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}
+          tags: ${{ env.DOCKER_IMAGE }}:latest
   # 배포 Job
   deploy:
     needs: build  # build 후에 실행되도록 정의
@@ -69,8 +56,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # 8080 -> 80 포트로 수행하도록 지정
+      # 3000 -> 80 포트로 수행하도록 지정
       - name: Docker run
         run: |
-          docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}
-          docker run -d -p 80:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}
+          docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
+          docker run -d -p 80:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
