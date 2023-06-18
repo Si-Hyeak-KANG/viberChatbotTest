@@ -73,9 +73,4 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
-        aws deploy create-deployment \
-        --application-name chatbot-test \
-        --deployment-group-name chatbot-group \
-        --file-exists-behavior OVERWRITE \
-        --s3-location bucket=mychatbotcicdtest,bundleType=zip,key=chatbot-test.zip \ 
-        --region ap-northeast-2
+        aws deploy create-deployment --application-name chatbot-test --deployment-group-name chatbot-group --file-exists-behavior OVERWRITE --s3-location bucket=mychatbotcicdtest,bundleType=zip,key=chatbot-test.zip --region ap-northeast-2
