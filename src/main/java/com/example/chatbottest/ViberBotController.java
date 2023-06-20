@@ -1,14 +1,16 @@
 package com.example.chatbottest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.json.JSONObject;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ViberBotController {
 
+    static String userInputVariable;
+
     @GetMapping(value = "/")
-    public String helloWorld() {return "Hello World";}
+    public String helloWorld() {return userInputVariable;}
 
     @GetMapping(value = "/api/health")
     public String healthCheck() {return "Health check completed.";}
@@ -16,6 +18,15 @@ public class ViberBotController {
     @PostMapping(value = "/api/bot/test")
     public String webhookTest() {
         return "hello bot";
+    }
+
+    @PostMapping("/webhook")
+    public void handleWebhook(@RequestBody String json,
+                              @RequestHeader("X-Viber-Content-Signature") String serverSideSignature) {
+
+        String userInput = new JSONObject(json).getJSONObject("message").getString("text");
+        System.out.println(userInput);
+        userInputVariable = userInput;
     }
 
 }
