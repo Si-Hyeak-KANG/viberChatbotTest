@@ -16,17 +16,11 @@ public class ViberBotController {
     public String healthCheck() {return "Health check completed.";}
 
     @PostMapping(value = "/api/bot/test")
-    public String webhookTest() {
-        return "hello bot";
-    }
-
-    @PostMapping("/webhook")
-    public void handleWebhook(@RequestBody String json,
-                              @RequestHeader("X-Viber-Content-Signature") String serverSideSignature) {
-
+    public String webhookTest(@RequestBody String json) {
         String userInput = new JSONObject(json).getJSONObject("message").getString("text");
         System.out.println(userInput);
         userInputVariable = userInput;
+        return "hello bot";
     }
 
 }
