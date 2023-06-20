@@ -42,6 +42,24 @@ public class ViberBotController {
     private ResponseEntity<SuccessMessage> userRequest(String json) throws IOException {
         String text = new JSONObject(json).getJSONObject("message").getString("text");
         String url = "https://chatapi.viber.com/pa/send_message";
+        sendMessageToUser(text, url);
+        return ResponseEntity.ok(new SuccessMessage());
+    }
+
+    public ResponseEntity<WelcomeMessage> sendWelcomeMessage(String json) {
+        return ResponseEntity.ok(
+                new WelcomeMessage(
+                new Sender("test", "https://avatars.githubusercontent.com/u/79829085?v=4"),
+                "tracking data",
+                        "picture",
+                        "Welcome",
+                        "https://avatars.githubusercontent.com/u/79829085?v=4",
+                        "https://avatars.githubusercontent.com/u/79829085?v=4")
+        );
+
+    }
+
+    private static void sendMessageToUser(String text, String url) throws IOException {
         HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
@@ -55,20 +73,6 @@ public class ViberBotController {
         data.put("text", text);
         con.setDoOutput(true);
         con.getOutputStream().write(data.toString().getBytes());
-        return ResponseEntity.ok(new SuccessMessage());
-    }
-
-    public ResponseEntity<WelcomeMessage> sendWelcomeMessage(String json) {
-        return ResponseEntity.ok(
-                new WelcomeMessage(
-                new Sender("test", "https://avatars.githubusercontent.com/u/79829085?v=4"),
-                "tracking_data",
-                        "picture",
-                        "Welcome",
-                        "media",
-                        "https://avatars.githubusercontent.com/u/79829085?v=4")
-        );
-
     }
 
 }
