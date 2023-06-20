@@ -16,10 +16,11 @@ import java.net.URL;
 public class ViberBotController {
 
     static String currEvent;
+    static String currUserInputText;
 
     @GetMapping(value = "/")
     public String helloWorld() {
-        return currEvent;
+        return "event: " + currEvent + ", inputText: " + currUserInputText ;
     }
 
     @GetMapping(value = "/api/health")
@@ -27,7 +28,6 @@ public class ViberBotController {
         return "Health check completed.";
     }
 
-    @CustomPostMapping
     @PostMapping(value = "/api/bot/test")
     public ResponseEntity<? extends CallBackMessage> webhookTest(@RequestBody String json) throws IOException {
         String event = new JSONObject(json).getString("event");
@@ -41,6 +41,7 @@ public class ViberBotController {
 
     private ResponseEntity<SuccessMessage> userRequest(String json) throws IOException {
         String text = new JSONObject(json).getJSONObject("message").getString("text");
+        currUserInputText = text;
         String url = "https://chatapi.viber.com/pa/send_message";
         sendMessageToUser(text, url);
         return ResponseEntity.ok(new SuccessMessage());
