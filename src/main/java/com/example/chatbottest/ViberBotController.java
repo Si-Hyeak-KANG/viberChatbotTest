@@ -62,7 +62,7 @@ public class ViberBotController {
         HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
         con.setRequestMethod("POST");
         con.setRequestProperty("Content-Type", "application/json");
-        con.setRequestProperty("X-Viber-Auth-Token", "51325d70dda7dc2c-2f10319fe1a387be-b00bd73e2ba977c2");
+        con.setRequestProperty("X-Viber-Auth-Token", "51375b70e3a7e340-3874f3e396e15f3c-cd7134f6cda50c20");
         JSONObject data = new JSONObject();
         data.put("receiver", "YZmWEo/KBmn/6PKQW0qBxg==");
         data.put("min_api_version", 1);
