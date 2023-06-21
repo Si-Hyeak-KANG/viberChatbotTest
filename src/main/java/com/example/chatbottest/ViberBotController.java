@@ -1,9 +1,7 @@
 package com.example.chatbottest;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
@@ -24,18 +22,23 @@ public class ViberBotController {
     }
 
     @PostMapping("/viber/bot/webhook")
-    public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
-        event = dto.event;
-        return ResponseEntity.ok(
-                WelcomeMessage.builder()
-                        .sender(new Sender("Sihyuk",
-                                "https://media-direct.cdn.viber.com/download_photo?dlid=7z9xlizcp91wXTJRDe8cXBFmNR9HUa5iN_d3cBYQCNyBJ6tXcoUsS8JIE9c6_4iWAXSarYIfr71fxjtxS4OMbjZ8J_EhVe91qQG85gV20ahElFkiB5XpPT-obQEezWPc8egpAw&fltp=jpg&imsz=0000"))
-                        .trackingData("tracking_data")
-                        .type("picture")
-                        .text("안녕하세요! 환영해요!")
-                        .media("https://avatars.githubusercontent.com/u/136808906?s=400&u=b1ecc9d3c587e738a13aa783e1cdc27c25844e10&v=4")
-                        .thumbnail("https://avatars.githubusercontent.com/u/136808906?s=400&u=b1ecc9d3c587e738a13aa783e1cdc27c25844e10&v=4")
-                        .build());
+    public String webhookConnect() throws IOException {
+        return "connect";
+    }
+
+//    @PostMapping("/viber/bot/webhook")
+//    public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
+//        event = dto.event;
+//        return ResponseEntity.ok(
+//                WelcomeMessage.builder()
+//                        .sender(new Sender("Sihyuk",
+//                                "https://media-direct.cdn.viber.com/download_photo?dlid=7z9xlizcp91wXTJRDe8cXBFmNR9HUa5iN_d3cBYQCNyBJ6tXcoUsS8JIE9c6_4iWAXSarYIfr71fxjtxS4OMbjZ8J_EhVe91qQG85gV20ahElFkiB5XpPT-obQEezWPc8egpAw&fltp=jpg&imsz=0000"))
+//                        .trackingData("tracking_data")
+//                        .type("picture")
+//                        .text("안녕하세요! 환영해요!")
+//                        .media("https://avatars.githubusercontent.com/u/136808906?s=400&u=b1ecc9d3c587e738a13aa783e1cdc27c25844e10&v=4")
+//                        .thumbnail("https://avatars.githubusercontent.com/u/136808906?s=400&u=b1ecc9d3c587e738a13aa783e1cdc27c25844e10&v=4")
+//                        .build());
 
 //
 //    private ResponseEntity<SuccessMessage> userRequest(String json) throws IOException {
@@ -62,5 +65,4 @@ public class ViberBotController {
 //        con.setDoOutput(true);
 //        con.getOutputStream().write(data.toString().getBytes());
 //    }
-    }
 }
