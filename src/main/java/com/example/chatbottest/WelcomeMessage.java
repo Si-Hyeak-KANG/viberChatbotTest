@@ -8,6 +8,7 @@ import lombok.Data;
 @Builder
 public class WelcomeMessage {
 
+    @JsonProperty("sender")
     Sender sender;
 
     @JsonProperty("tracking_data")
