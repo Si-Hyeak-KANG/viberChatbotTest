@@ -24,8 +24,8 @@ public class ViberBotController {
     }
 
     @PostMapping("/viber/bot/webhook")
-    public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
-        event = dto.event;
+    public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody String dto) throws IOException {
+
         return ResponseEntity.ok(
                 WelcomeMessage.builder()
                         .sender(new Sender("Sihyuk",
