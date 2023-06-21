@@ -1,5 +1,6 @@
 package com.example.chatbottest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
@@ -8,7 +9,10 @@ import lombok.Data;
 public class WelcomeMessage {
 
     Sender sender;
+
+    @JsonProperty("tracking_data")
     String trackingData;
+
     String type;
     String text;
     String media;
