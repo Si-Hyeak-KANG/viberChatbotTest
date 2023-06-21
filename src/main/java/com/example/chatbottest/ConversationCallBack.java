@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class ConversationCallBack {
 
     String event;
-    LocalDateTime timestamp;
+    int timestamp;
 
     @JsonProperty("message_token")
     int messageToken;
