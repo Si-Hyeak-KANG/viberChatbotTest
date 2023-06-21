@@ -1,11 +1,16 @@
 package com.example.chatbottest;
 
-public class WelcomeMessage extends CallBackMessage {
+import lombok.Builder;
+import lombok.Data;
 
+@Data
+@Builder
+public class WelcomeMessage {
+
+    Sender sender;
+    String trackingData;
+    String type;
+    String text;
+    String media;
     String thumbnail;
-
-    public WelcomeMessage(Sender sender, String tracking_data, String type, String text, String media, String thumbnail) {
-        super(sender, tracking_data, type, text, media);
-        this.thumbnail = thumbnail;
-    }
 }

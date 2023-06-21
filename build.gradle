@@ -24,14 +24,13 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.guava/guava
     implementation 'com.google.guava:guava:32.0.1-jre'
 
-    // https://mvnrepository.com/artifact/com.viber/viber-bot
-    implementation 'com.viber:viber-bot:1.0.11'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
 
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
     // https://mvnrepository.com/artifact/javax.inject/javax.inject
     implementation 'javax.inject:javax.inject:1'
-    implementation 'org.json:json:20220924'
 
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
