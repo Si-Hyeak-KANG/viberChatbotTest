@@ -11,9 +11,11 @@ import java.io.IOException;
 @RestController
 public class ViberBotController {
 
+    static ConversationCallBack check;
+
     @GetMapping(value = "/")
     public String helloWorld() {
-        return "success connection";
+        return check.toString();
     }
 
     @GetMapping(value = "/api/health")
@@ -23,7 +25,7 @@ public class ViberBotController {
 
     @PostMapping(value = "/api/bot/test")
     public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
-
+        check = dto;
         return ResponseEntity.ok(
                 WelcomeMessage.builder()
                         .sender(new Sender("Sihyuk",
