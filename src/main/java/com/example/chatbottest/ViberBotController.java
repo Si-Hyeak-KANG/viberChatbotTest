@@ -1,5 +1,6 @@
 package com.example.chatbottest;
 
+import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ public class ViberBotController {
     @PostMapping("/viber/bot/webhook")
     public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody String dto) throws IOException {
 
+        event = new JSONObject(dto).getString("event");
         return ResponseEntity.ok(
                 WelcomeMessage.builder()
                         .sender(new Sender("Sihyuk",
