@@ -23,7 +23,7 @@ public class ViberBotController {
         return "Health check completed.";
     }
 
-    @PostMapping(value = "/viber/bot/webhook")
+    @PostMapping(value = "/api/bot/test")
     public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
         check = dto;
         return ResponseEntity.ok(
