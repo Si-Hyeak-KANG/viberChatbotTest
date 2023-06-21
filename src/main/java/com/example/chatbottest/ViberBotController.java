@@ -23,10 +23,10 @@ public class ViberBotController {
         return "Health check completed.";
     }
 
-    @PostMapping("/viber/bot/webhook")
-    public String connect() {
-        return "hello world";
-    }
+//    @PostMapping("/viber/bot/webhook")
+//    public String connect() {
+//        return "hello world";
+//    }
 
 //
 
@@ -38,17 +38,17 @@ public class ViberBotController {
 //        return ResponseEntity.ok(new SuccessMessage());
 //    }
 //
-//    public ResponseEntity<WelcomeMessage> sendWelcomeMessage(String json) {
-//        return ResponseEntity.ok(
-//                new WelcomeMessage(
-//                        new Sender("test", "https://avatars.githubusercontent.com/u/79829085?v=4"),
-//                        "tracking data",
-//                        "picture",
-//                        "Welcome",
-//                        "https://avatars.githubusercontent.com/u/79829085?v=4",
-//                        "https://avatars.githubusercontent.com/u/79829085?v=4")
-//        );
-//    }
+    public ResponseEntity<WelcomeMessage> sendWelcomeMessage(String json) {
+        return ResponseEntity.ok(
+                new WelcomeMessage(
+                        new Sender("test", "https://avatars.githubusercontent.com/u/79829085?v=4"),
+                        "tracking data",
+                        "picture",
+                        "Welcome",
+                        "https://avatars.githubusercontent.com/u/79829085?v=4",
+                        "https://avatars.githubusercontent.com/u/79829085?v=4")
+        );
+    }
 //
 //    private static void sendMessageToUser(String text, String url) throws IOException {
 //        HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
