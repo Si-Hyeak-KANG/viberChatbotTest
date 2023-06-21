@@ -30,12 +30,12 @@ public class ViberBotController {
         event = request.get("event").toString();
 
         return ResponseEntity.ok(WelcomeMessage.builder()
-                .sender(new Sender("kkk","mmm"))
+                .sender(new Sender("John McClane","https://picsum.photos/id/237/200/300"))
                 .trackingData("tracking data")
                 .type("picture")
                 .text("hi")
-                .media("df")
-                .thumbnail("sdf").build());
+                .media("https://picsum.photos/id/237/200/300")
+                .thumbnail("https://picsum.photos/id/237/200/300").build());
     }
 
 //
