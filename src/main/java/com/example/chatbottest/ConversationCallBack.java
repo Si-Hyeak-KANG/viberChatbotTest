@@ -15,10 +15,10 @@ import java.time.LocalDateTime;
 public class ConversationCallBack {
 
     String event;
-    int timestamp;
+    long timestamp;
 
     @JsonProperty("message_token")
-    int messageToken;
+    long messageToken;
 
     String type;
     String context;

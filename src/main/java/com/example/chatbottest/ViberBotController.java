@@ -1,11 +1,17 @@
 package com.example.chatbottest;
 
 import org.json.JSONObject;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 
@@ -25,19 +31,24 @@ public class ViberBotController {
     }
 
     @PostMapping("/viber/bot/webhook")
-    public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
+    public ResponseEntity<SendMessageResponse> webhookTest(@RequestBody String dto) throws IOException {
 
-        event = dto.getEvent();
-        return ResponseEntity.ok(
-                WelcomeMessage.builder()
-                        .sender(new Sender("John McClane",
-                                "https://picsum.photos/id/237/200/300"))
-                        .trackingData("tracking_data")
-                        .type("picture")
-                        .text("안녕하세요! 환영해요!")
-                        .media("https://picsum.photos/id/237/200/300")
-                        .thumbnail("https://picsum.photos/id/237/200/300")
-                        .build());
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("X-Viber-Auth-Token","51375b70e3a7e340-3874f3e396e15f3c-cd7134f6cda50c20");
+
+        MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+        body.add("receiver","YZmWEo/KBmn/6PKQW0qBxg==");
+        body.add("min_api_version",1);
+        body.add("sender",new Sender("John McClane","http://avatar.example.com"));
+        body.add("tracking_data","tracking data");
+        body.add("type","text");
+        body.add("text","Hello world");
+
+        HttpEntity<MultiValueMap<String, Object>> request = new HttpEntity<>(body, headers);
+
+        return restTemplate.postForEntity("https://chatapi.viber.com/pa/set_webhook", request, SendMessageResponse.class);
     }
 
 //
