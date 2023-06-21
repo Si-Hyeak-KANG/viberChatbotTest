@@ -31,12 +31,12 @@ public class ViberBotController {
         return ResponseEntity.ok(
                 WelcomeMessage.builder()
                         .sender(new Sender("John McClane",
-                                "http://avatar.example.com"))
+                                "https://picsum.photos/id/237/200/300"))
                         .trackingData("tracking_data")
                         .type("picture")
                         .text("안녕하세요! 환영해요!")
-                        .media("http://www.images.com/img.jpg")
-                        .thumbnail("http://www.images.com/thumb.jpg")
+                        .media("https://picsum.photos/id/237/200/300")
+                        .thumbnail("https://picsum.photos/id/237/200/300")
                         .build());
     }
 

@@ -1,8 +1,15 @@
 package com.example.chatbottest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class User {
 
     String id;
@@ -10,5 +17,7 @@ public class User {
     String avatar;
     String country;
     String language;
-    int api_version;
+
+    @JsonProperty("api_version")
+    int apiVersion;
 }
