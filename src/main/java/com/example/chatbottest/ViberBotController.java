@@ -15,7 +15,7 @@ public class ViberBotController {
 
     @GetMapping(value = "/")
     public String helloWorld() {
-        return check.toString();
+        return check.toString()==null ? "none" : check.toString();
     }
 
     @GetMapping(value = "/api/health")
@@ -23,7 +23,12 @@ public class ViberBotController {
         return "Health check completed.";
     }
 
-    @PostMapping( "/api/bot/test")
+    @PostMapping("/viber/bot/webhook")
+    public String connect() {
+        return "hello world";
+    }
+
+    @PostMapping("/viber/bot/webhook")
     public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody ConversationCallBack dto) throws IOException {
         check = dto;
         return ResponseEntity.ok(

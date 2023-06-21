@@ -16,4 +16,17 @@ public class ConversationCallBack {
     String context;
     User user;
     boolean subscribed;
+
+    @Override
+    public String toString() {
+        return "ConversationCallBack{" +
+                "event='" + event + '\'' +
+                ", timestamp=" + timestamp +
+                ", messageToken=" + messageToken +
+                ", type='" + type + '\'' +
+                ", context='" + context + '\'' +
+                ", user=" + user +
+                ", subscribed=" + subscribed +
+                '}';
+    }
 }
