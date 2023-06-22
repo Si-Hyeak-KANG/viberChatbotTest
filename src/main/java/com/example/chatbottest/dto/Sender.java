@@ -1,4 +1,4 @@
-package com.example.chatbottest;
+package com.example.chatbottest.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

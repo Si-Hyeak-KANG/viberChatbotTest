@@ -1,4 +1,4 @@
-package com.example.chatbottest;
+package com.example.chatbottest.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -10,15 +10,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WelcomeMessage {
+public class User {
 
-    Sender sender;
+    String id;
+    String name;
+    String avatar;
+    String country;
+    String language;
 
-    @JsonProperty("tracking_data")
-    String trackingData;
-
-    String type;
-    String text;
-    String media;
-    String thumbnail;
+    @JsonProperty("api_version")
+    int apiVersion;
 }
