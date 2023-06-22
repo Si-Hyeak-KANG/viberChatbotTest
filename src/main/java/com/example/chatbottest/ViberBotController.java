@@ -32,8 +32,27 @@ public class ViberBotController {
     }
 
     @PostMapping("/viber/bot/webhook")
-    public ResponseEntity<String> webhookTest(@RequestBody String callback) throws IOException {
+    public ResponseEntity<?> webhookTest(@RequestBody String callback) throws IOException {
+        String event = new JSONObject(callback).getString("event");
 
+        return switch (event) {
+            case "conversation_started" -> sendWelcomeMessage();
+            case "message" -> sendMessageToUser(callback);
+            default -> throw new IllegalStateException("Unexpected value: " + event);
+        };
+    }
+
+    private static ResponseEntity<WelcomeMessage> sendWelcomeMessage() {
+        return ResponseEntity.ok(WelcomeMessage.builder()
+                .sender(new Sender("John McClane", "https://picsum.photos/id/237/200/300"))
+                .trackingData("tracking data")
+                .type("picture")
+                .text("hi")
+                .media("https://picsum.photos/id/237/200/300")
+                .thumbnail("https://picsum.photos/id/237/200/300").build());
+    }
+
+    private static ResponseEntity<String> sendMessageToUser(String callback) {
         log.info("메시지 전송 시작");
         String senderId = new JSONObject(callback).getJSONObject("sender").getString("id");
         String senderName = new JSONObject(callback).getJSONObject("sender").getString("name");
@@ -59,24 +78,6 @@ public class ViberBotController {
         HttpEntity<SendMessage> request = new HttpEntity<>(body, headers);
 
         RestTemplate rt = new RestTemplate();
-        ResponseEntity<String> response = rt.postForEntity(url, request, String.class);
-
-        if (response.getStatusCode() == HttpStatus.OK) {
-            System.out.println("Message sent successfully.");
-        } else {
-            System.out.println("Failed to send message.");
-        }
-
-        return response;
-//
-
-        // 이미지 URL 중요함.....
-//        return ResponseEntity.ok(WelcomeMessage.builder()
-//                .sender(new Sender("John McClane", "https://picsum.photos/id/237/200/300"))
-//                .trackingData("tracking data")
-//                .type("picture")
-//                .text("hi")
-//                .media("https://picsum.photos/id/237/200/300")
-//                .thumbnail("https://picsum.photos/id/237/200/300").build());
+        return rt.postForEntity(url, request, String.class);
     }
 }
