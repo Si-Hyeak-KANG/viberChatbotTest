@@ -36,7 +36,7 @@ public class ViberBotController {
         String event = new JSONObject(callback).getString("event");
         String trackingData = new JSONObject(callback).getString("tracking_data");
 
-        if (event.equals("message")) {
+        if (event == "message") {
             String senderId = new JSONObject(callback).getJSONObject("sender").getString("id");
             String senderName = new JSONObject(callback).getJSONObject("sender").getString("name");
             String senderAvatar = new JSONObject(callback).getJSONObject("sender").getString("avatar");
@@ -76,15 +76,4 @@ public class ViberBotController {
                 .media("https://picsum.photos/id/237/200/300")
                 .thumbnail("https://picsum.photos/id/237/200/300").build());
     }
-
-    /**
-     * data.put("receiver", "YZmWEo/KBmn/6PKQW0qBxg==");
-     * data.put("min_api_version", 1);
-     * data.put("sender", new Sender("test", "https://picsum.photos/id/237/200/300"));
-     * data.put("tracking_data", "tracking data");
-     * data.put("type","text");
-     * data.put("text", text);
-     */
-
-
 }
