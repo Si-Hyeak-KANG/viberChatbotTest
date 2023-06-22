@@ -41,6 +41,8 @@ public class ViberBotController {
 
         event = request.get("event").toString();
         if (event.equals("message")) sendMessageToUser("메시지 받으셨나요?");
+        if (event.equals("seen")) sendMessageToUser("메시지 받으셨나요?");
+
 
         // 이미지 URL 중요함.....
         return ResponseEntity.ok(WelcomeMessage.builder()
