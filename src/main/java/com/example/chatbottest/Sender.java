@@ -13,4 +13,10 @@ public class Sender {
 
     String name;
     String avatar;
+
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", avatar='" + avatar + '\'';
+    }
 }
