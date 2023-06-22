@@ -20,8 +20,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class ViberBotController {
 
-    private final WebfluxService webfluxService;
-
     @GetMapping(value = "/")
     public String helloWorld() {
         return "hello";
