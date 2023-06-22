@@ -36,10 +36,16 @@ public class ViberBotController {
         String event = new JSONObject(callback).getString("event");
         String trackingData = new JSONObject(callback).getString("tracking_data");
 
+        log.info("event = {}, tracking_data = {}", event, trackingData);
+
         if (event == "message") {
+            log.info("메시지 전송 시작");
             String senderId = new JSONObject(callback).getJSONObject("sender").getString("id");
             String senderName = new JSONObject(callback).getJSONObject("sender").getString("name");
             String senderAvatar = new JSONObject(callback).getJSONObject("sender").getString("avatar");
+
+            log.info("id = {}, name = {}, avatar = {}", senderId, senderName, senderAvatar);
+
             Sender receiver = new Sender(senderName, senderAvatar);
             String url = "https://chatapi.viber.com/pa/send_message";
 
