@@ -34,10 +34,10 @@ public class ViberBotController {
     @PostMapping("/viber/bot/webhook")
     public ResponseEntity<WelcomeMessage> webhookTest(@RequestBody String callback) throws IOException {
 
-        String event = new JSONObject(callback).getString("event");
-        String trackingData = new JSONObject(callback).getString("tracking_data");
-
-        log.info("event = {}, tracking_data = {}", event, trackingData);
+//        String event = new JSONObject(callback).getString("event");
+//        String trackingData = new JSONObject(callback).getString("tracking_data");
+//
+//        log.info("event = {}, tracking_data = {}", event, trackingData);
 
 //        if (Objects.equals(event, "message")) {
 //            log.info("메시지 전송 시작");
