@@ -10,20 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 public class PayResultButtons {
 
-    /**
-     * 1) 상품이미지
-     * 2) 제품제목
-     * 3) 브랜드명
-     * 4) 받는사람
-     * 5) 메시지
-     * 6) 코드
-     * 7) 만료날짜
-     * 8) 보내는사람
-     * 9) 사용포인트
-     * 10) 남은포인트
-     * 11) 버튼 (see participating stores)
-     * 12) 버튼 (terms of use)
-     */
     public static List<PayResultButtons> of() {
         return List.of(
                 ButtonsForImage.of(6, 1, "none", "https://www.google.com", "https://ifh.cc/g/ybxotT.jpg"),
@@ -111,7 +97,6 @@ public class PayResultButtons {
 
         @JsonProperty("Rows")
         private int rows;
-
 
         @JsonProperty("ActionType")
         private String actionType;
