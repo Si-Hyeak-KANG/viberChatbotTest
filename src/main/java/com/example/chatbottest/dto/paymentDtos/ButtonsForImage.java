@@ -25,7 +25,7 @@ public class ButtonsForImage {
     @JsonProperty("Image")
     private String image;
 
-    public static PayResultButtons.ButtonsForImage of(int columns, int rows, String actionType, String actionBody, String image) {
-        return new PayResultButtons.ButtonsForImage(columns, rows, actionType, actionBody, image);
+    public static ButtonsForImage of(int columns, int rows, String actionType, String actionBody, String image) {
+        return new ButtonsForImage(columns, rows, actionType, actionBody, image);
     }
 }

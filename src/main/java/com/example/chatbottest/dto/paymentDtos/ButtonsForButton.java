@@ -37,8 +37,8 @@ public class ButtonsForButton {
     @JsonProperty("TextHAlign")
     private String textHAlign;
 
-    public static PayResultButtons.ButtonsForButton of(int columns, int rows, String actionType, String actionBody
+    public static ButtonsForButton of(int columns, int rows, String actionType, String actionBody
             , String bgColor, String text, String textSize, String textVAlign, String textHAlign) {
-        return new PayResultButtons.ButtonsForButton(columns, rows, text, actionType, actionBody, bgColor, textSize, textVAlign, textHAlign);
+        return new ButtonsForButton(columns, rows, text, actionType, actionBody, bgColor, textSize, textVAlign, textHAlign);
     }
 }

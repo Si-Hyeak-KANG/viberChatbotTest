@@ -16,7 +16,6 @@ public class ButtonsForText {
     @JsonProperty("Rows")
     private int rows;
 
-
     @JsonProperty("ActionType")
     private String actionType;
 
@@ -36,8 +35,8 @@ public class ButtonsForText {
     private String textHAlign;
 
 
-    public static PayResultButtons.ButtonsForText of(int columns, int rows, String actionType, String actionBody, String text
+    public static ButtonsForText of(int columns, int rows, String actionType, String actionBody, String text
             , String textSize, String textVAlign, String textHAlign) {
-        return new PayResultButtons.ButtonsForText(columns, rows, text, actionType, actionBody, textSize, textVAlign, textHAlign);
+        return new ButtonsForText(columns, rows, text, actionType, actionBody, textSize, textVAlign, textHAlign);
     }
 }
