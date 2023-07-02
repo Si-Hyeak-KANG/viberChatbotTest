@@ -95,7 +95,7 @@ public class PayResultButtons {
 
         public static ButtonsForText of(int columns, int rows, String actionType, String actionBody, String text
                 , String textSize, String textVAlign, String textHAlign) {
-            return new ButtonsForText(columns, rows, text, actionType, actionBody, textSize, textVAlign, textHAlign);
+            return new ButtonsForText(columns, rows,actionType, actionBody,text,textSize, textVAlign, textHAlign);
         }
     }
 
