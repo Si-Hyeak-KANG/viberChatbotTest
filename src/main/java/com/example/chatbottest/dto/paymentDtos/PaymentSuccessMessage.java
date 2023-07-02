@@ -22,9 +22,9 @@ public class PaymentSuccessMessage {
     @JsonProperty("rich_media")
     private RichMedia richMedia;
 
-    public static PaymentSuccessMessage of() {
+    public static PaymentSuccessMessage of(String id) {
         return new PaymentSuccessMessage(
-                "YZmWEo/KBmn/6PKQW0qBxg==",
+                id,
                 "rich_media",
                 7,
                 RichMedia.of("rich_media", 6, 7, "#F2F2F2"));

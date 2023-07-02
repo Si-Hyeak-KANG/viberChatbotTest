@@ -24,7 +24,7 @@ public class SendMessageFunc{
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.add("X-Viber-Auth-Token", "51375b70e3a7e340-3874f3e396e15f3c-cd7134f6cda50c20");
-        PaymentSuccessMessage response = PaymentSuccessMessage.of();
+        PaymentSuccessMessage response = PaymentSuccessMessage.of(senderId);
         HttpEntity<PaymentSuccessMessage> httpEntity = new HttpEntity<>(response, headers);
 
         RestTemplate rt = new RestTemplate();
