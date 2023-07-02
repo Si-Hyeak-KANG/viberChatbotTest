@@ -62,14 +62,14 @@ public class PayResultButtons {
         @JsonProperty("Rows")
         private int rows;
 
+        @JsonProperty("Text")
+        private String text;
+
         @JsonProperty("ActionType")
         private String actionType;
 
         @JsonProperty("ActionBody")
         private String actionBody;
-
-        @JsonProperty("Text")
-        private String text;
 
         @JsonProperty("TextSize")
         private String textSize;
