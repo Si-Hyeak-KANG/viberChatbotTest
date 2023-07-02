@@ -26,8 +26,8 @@ public class PayResultButtons {
      * 12) 버튼 (terms of use)
      */
     public static List<PayResultButtons> of() {
-        return List.of(ButtonsForImage.of(6, 7, "none", "https://www.google.com", "https://picsum.photos/id/237/200/300"));
-//        com.example.chatbottest.dto.paymentDtos.ButtonsForText.of(6, 1, "none", "상품제목", "<font color=#323232><b>" + "Cheeseburger Solo" + "</b></font>", "large", "middle", "left"),
+        return List.of(ButtonsForImage.of(6, 1, "none", "https://www.google.com", "https://picsum.photos/id/237/200/300"),
+                ButtonsForText.of(6, 6, "none", "상품제목", "<font color=#323232><b>" + "Cheeseburger Solo" + "</b></font>", "large", "middle", "left"));
 //                com.example.chatbottest.dto.paymentDtos.ButtonsForText.of(6, 1, "none", "브랜드명", "<font color=#323232>" + "Mcdonald's" + "</font>", "small", "middle", "left"),
 //                com.example.chatbottest.dto.paymentDtos.ButtonsForText.of(6, 2, "none", "발신자명,메시지", "<font color=#323232> FROM." + "강시혁" + "</font><br><br>" + "<font color=#323232> message: &quot;" + "생일 축하한다~!" + "&quot; </font>", "medium", "middle", "left"),
 //                com.example.chatbottest.dto.paymentDtos.ButtonsForText.of(6, 2, "none", "코드,만료날짜", "<font color=#323232><b>Code : " + "dsfksjdfkjsdfhisdholvaksdfdsfadfvfdva" + "</b></font><br><font color=#323232><b>Expire Date : " + "02/07/23" + "</b></font>", "small", "middle", "left"),
