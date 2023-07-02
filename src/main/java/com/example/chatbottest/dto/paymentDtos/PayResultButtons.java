@@ -133,7 +133,7 @@ ButtonsForButton.of(6, 1, "open-url", "https://www.google.com", "#6863F2", "<fon
 
         public static ButtonsForButton of(int columns, int rows, String actionType, String actionBody
                 , String bgColor, String text, String textSize, String textVAlign, String textHAlign) {
-            return new ButtonsForButton(columns, rows, text, actionType, actionBody, bgColor, textSize, textVAlign, textHAlign);
+            return new ButtonsForButton(columns, rows,actionType, actionBody, bgColor, text, textSize, textVAlign, textHAlign);
         }
     }
 }
