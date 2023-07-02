@@ -1,6 +1,5 @@
 package com.example.chatbottest.dto;
 
-import com.example.chatbottest.dto.Sender;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

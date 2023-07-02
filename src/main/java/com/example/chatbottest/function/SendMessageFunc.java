@@ -15,9 +15,6 @@ public class SendMessageFunc{
     public static ResponseEntity<String> send(String callback) {
 
         String senderId = new JSONObject(callback).getJSONObject("sender").getString("id");
-        String senderName = new JSONObject(callback).getJSONObject("sender").getString("name");
-        String senderAvatar = new JSONObject(callback).getJSONObject("sender").getString("avatar");
-        Sender receiver = new Sender(senderName, senderAvatar);
         String url = "https://chatapi.viber.com/pa/send_message";
 
 

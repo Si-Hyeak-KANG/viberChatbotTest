@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonPropertyOrder()
 public class PaymentSuccessMessage {
 
     private String receiver;
