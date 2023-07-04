@@ -27,7 +27,7 @@ public class PayResultButtons {
      */
     public static List<PayResultButtons> of() {
         return List.of(ButtonsForImage.of(6, 1, "none", "https://www.google.com", "https://picsum.photos/id/237/200/300"),
-                ButtonsForText.of(6, 1, "none", "https://www.google.com", "<font color=#323232><b>Cheeseburger Solo </b></font>", "large", "middle", "left"),
+                ButtonsForText.of(6, 1, "none", "상품제목", "<font color=#323232><b>Cheeseburger Solo</b></font>", "large", "middle", "left"),
                 ButtonsForText.of(6, 1, "none", "브랜드명", "<font color=#323232>" + "Mcdonald's" + "</font>", "small", "top", "left"),
                 ButtonsForText.of(6, 4, "none", "발신자명,메시지", "<font color=#323232>From." + " 강시혁" + "</font>" + "<br><br><font color=#323232>Message: 생일 축하한다~!</font>"+"<br><br><font color=#323232><b>Code : " + "dsfksjdfkjsdfhisdholvaksdfds" + "</b></font><br><br><font color=#323232><b>Expire Date : " + "02/07/23" + "</b></font>", "small", "middle", "left"),
                 ButtonsForText.of(6, 3, "none", "수신자명,성공", "<font color=#323232><b>" + "제임스" + " 님의 이메일로 선물을 성공적으로 전송했습니다.</b></font>", "medium", "middle", "left"),

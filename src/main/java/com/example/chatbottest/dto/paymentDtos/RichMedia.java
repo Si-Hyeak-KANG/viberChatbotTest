@@ -33,15 +33,6 @@ public class RichMedia {
         return new RichMedia(type, buttonsGroupColumns, buttonsGroupRows, bgColor, PayResultButtons.of());
     }
 
-    private static Map<String, Object> getImage() {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("Columns", 6);
-        map.put("Rows", 7);
-        map.put("ActionType", "none");
-        map.put("ActionBody", "https://www.google.com");
-        map.put("Image", "https://picsum.photos/id/237/200/300");
-        return map;
-    }
 
 
 }
